@@ -1,0 +1,38 @@
+﻿@model Library__MVC_.Models.Enrollment
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h4>Добавить запись в журнал</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Book" class="control-label">Книга</label>
+                <select asp-for="Book" class ="form-control" asp-items="ViewBag.Book"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="Author" class="control-label">Автор</label>
+                <select asp-for="Author" class ="form-control" asp-items="ViewBag.Author"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="Publisher" class="control-label">Издательство</label>
+                <select asp-for="Publisher" class ="form-control" asp-items="ViewBag.Publisher"></select>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Добавить" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Назад</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

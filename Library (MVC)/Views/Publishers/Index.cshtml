@@ -1,0 +1,47 @@
+﻿@model IEnumerable<Library__MVC_.Models.Publisher>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Издательства</h1>
+
+<p>
+    <a asp-action="Create">Добавить</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Наименование
+            </th>
+            <th>
+                Адрес
+            </th>
+            <th>
+                ИНН
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Address)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.INN)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.PublisherID">Редактировать</a> |
+                <a asp-action="Details" asp-route-id="@item.PublisherID">Подробно</a> |
+                <a asp-action="Delete" asp-route-id="@item.PublisherID">Удалить</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

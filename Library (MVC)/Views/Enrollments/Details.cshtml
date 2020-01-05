@@ -1,0 +1,47 @@
+﻿@model Library__MVC_.Models.Enrollment
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+
+<div>
+    <h4>Подробности</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            ID записи в журнале
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.EnrollmentID)
+        </dd>
+
+        <dt class="col-sm-2">
+            Книга
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Book.Name) (ID: @Html.DisplayFor(model => model.Book.ID))
+        </dd>
+                               
+        <dt class="col-sm-2">
+            Автор
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Author.FirstName)
+            @Html.DisplayFor(model => model.Author.MiddleName)
+            @Html.DisplayFor(model => model.Author.LastName)  (ID: @Html.DisplayFor(model => model.Author.AuthorID))
+        </dd>
+       
+        <dt class="col-sm-2">
+            Издательство
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Publisher.Name) (ID: @Html.DisplayFor(model => model.Publisher.PublisherID))
+        </dd>
+        
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.EnrollmentID">Редактировать</a> |
+    <a asp-action="Index">Назад</a>
+</div>
